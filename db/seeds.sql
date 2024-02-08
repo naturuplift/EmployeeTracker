@@ -1,3 +1,4 @@
+
 -- Insert departments
 INSERT INTO department (departmentId, departmentName) VALUES 
 (1, 'Research & Development'),
