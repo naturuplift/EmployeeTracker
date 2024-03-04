@@ -20,6 +20,9 @@ function mainMenu() {
             'Add a role',
             'Add an employee',
             'Update an employee role',
+            'View employees by manager', // Bonus functionality
+            'View employees by department', // Bonus functionality
+            'View total utilized budget by department', // Bonus functionality
             'Exit',
         ],
     })
@@ -49,6 +52,15 @@ function mainMenu() {
         case 'Update an employee role':
             updateEmployeeRole();
             break;
+        case 'View employees by manager':
+            viewEmployeesByManager();
+            break;
+        case 'View employees by department':
+            viewEmployeesByDepartment();
+            break;
+        case 'View total utilized budget by department':
+            viewBudgetByDepartment();
+            break;
         case 'Exit':
 
             // Close the database connection before exiting
@@ -77,7 +89,7 @@ function viewDepartments() {
     });
 }
 
-// Function to view all roles in  DB
+// Function to view all roles in DB
 function viewRoles() {
 
     // query DB for role table
@@ -166,13 +178,13 @@ function addRole() {
 // Function to add an employee to DB
 function addEmployee() {
 
-    // fetch roles for the user to select the employee's role
+    // fetch roles for the user to select employee's role
     let sql = `SELECT roleId, roleTitle FROM role`;
     db.query(sql, (err, roles) => {
         if (err) throw err;
         roles = roles.map(role => ({ name: role.roleTitle, value: role.roleId }));
 
-        // fetch employees to allow the user to select the manager for the new employee
+        // fetch employees to allow user to select manager for new employee
         sql = `SELECT employeeId, CONCAT(firstName, ' ', lastName) AS fullName FROM employee`;
         db.query(sql, (err, employees) => {
             if (err) throw err;
@@ -227,7 +239,7 @@ function updateEmployeeRole() {
     db.query(`SELECT employeeId, CONCAT(firstName, ' ', lastName) AS fullName FROM employee`, (err, employees) => {
         if (err) throw err;
         employees = employees.map(emp => ({ name: emp.fullName, value: emp.employeeId }));
-        // fetch roles for the user to select the new role
+        // fetch roles for the user to select new role
         db.query(`SELECT roleId, roleTitle FROM role`, (err, roles) => {
             if (err) throw err;
             roles = roles.map(role => ({ name: role.roleTitle, value: role.roleId }));
@@ -259,6 +271,53 @@ function updateEmployeeRole() {
                 });
             }).catch(error => console.error(error));
         });
+    });
+}
+
+// Function to view employees by managers from DB
+function viewEmployeesByManager() {
+    const sql = `
+        SELECT e.employeeId, e.firstName, e.lastName, CONCAT(m.firstName, ' ', m.lastName) AS manager
+        FROM employee e
+        LEFT JOIN employee m ON e.managerId = m.employeeId
+        ORDER BY e.managerId
+    `;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        console.table(results);
+        mainMenu();
+    });
+}
+
+// Function to view employees by department from DB
+function viewEmployeesByDepartment() {
+    const sql = `
+        SELECT e.employeeId, e.firstName, e.lastName, d.departmentName
+        FROM employee e
+        JOIN role r ON e.roleId = r.roleId
+        JOIN department d ON r.departmentId = d.departmentId
+        ORDER BY d.departmentName;
+    `;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        console.table(results);
+        mainMenu();
+    });
+}
+
+// Function to view budget by department from DB
+function viewBudgetByDepartment() {
+    const sql = `
+        SELECT d.departmentName, SUM(r.roleSalary) AS totalBudget
+        FROM employee e
+        JOIN role r ON e.roleId = r.roleId
+        JOIN department d ON r.departmentId = d.departmentId
+        GROUP BY d.departmentName;
+    `;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        console.table(results);
+        mainMenu();
     });
 }
 
