@@ -64,7 +64,8 @@ cd EmployeeTracker
    node index.js
 ```
 ## Screenshots
-Below are sample screenshots showcasing the application functionality:
+Below are sample screenshots showcasing the application functionality.
+
 View All Departments
 ![View all departments](https://github.com/naturuplift/EmployeeTracker/assets/23546356/866f1c7e-a718-48e0-aa6e-7ef7a0371f42)
 
@@ -93,6 +94,7 @@ View total utilized budget by department
 ![View total utilized budget by department](https://github.com/naturuplift/EmployeeTracker/assets/23546356/58a7c611-5c13-40f5-b696-f667f1066fc8)
 
 Exit
+
 ![Exit](https://github.com/naturuplift/EmployeeTracker/assets/23546356/bf00aecc-e5fe-466f-ac26-10a5bed8dfe0)
 
 ## State Flow Diagram
