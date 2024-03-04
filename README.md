@@ -64,10 +64,36 @@ cd EmployeeTracker
    node index.js
 ```
 ## Screenshots
-Below are screenshots showcasing the application functionality:
+Below are sample screenshots showcasing the application functionality:
 View All Departments
+![View all departments](https://github.com/naturuplift/EmployeeTracker/assets/23546356/866f1c7e-a718-48e0-aa6e-7ef7a0371f42)
 
-Add a Department
+View all roles
+![View all roles](https://github.com/naturuplift/EmployeeTracker/assets/23546356/22d6d77f-eac3-4513-a525-5fad6e037bd6)
+
+View all employees
+![View all employees](https://github.com/naturuplift/EmployeeTracker/assets/23546356/40376e8b-cd5f-445f-960c-c74fa80db2fe)
+
+Add a department
+![Add a department - Finance](https://github.com/naturuplift/EmployeeTracker/assets/23546356/3d998473-548c-41c6-acdd-69f41a9a332e)
+
+Add a role
+![Add a role](https://github.com/naturuplift/EmployeeTracker/assets/23546356/629b2451-c317-4bd7-aebc-2e3b56fe1353)
+
+Add an employee and update an employee role
+![Add an employee and update an employee role](https://github.com/naturuplift/EmployeeTracker/assets/23546356/caba9447-34e6-4193-ae81-8f50ffa2f578)
+
+View employees by manager
+![View employees by manager](https://github.com/naturuplift/EmployeeTracker/assets/23546356/302eb42b-b267-4143-8809-a674bb474ef8)
+
+View employees by department
+![View employees by department](https://github.com/naturuplift/EmployeeTracker/assets/23546356/2f60b76a-7395-4ce0-8a4c-b15d3c47ab98)
+
+View total utilized budget by department
+![View total utilized budget by department](https://github.com/naturuplift/EmployeeTracker/assets/23546356/58a7c611-5c13-40f5-b696-f667f1066fc8)
+
+Exit
+![Exit](https://github.com/naturuplift/EmployeeTracker/assets/23546356/bf00aecc-e5fe-466f-ac26-10a5bed8dfe0)
 
 ## State Flow Diagram
 For a visual representation of the sequence of actions involved in the **employee tracker**, refer to the [State Flow Diagram][state-flow] provided in the project documentation.
