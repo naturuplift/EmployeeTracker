@@ -31,7 +31,6 @@ The Employee Tracker is a command-line application built with Node.js and MySQL.
 - [Demo Video](#demo-video)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
 - [State Flow Diagram](#state-flow-diagram)
 - [Contributing](#contributing)
 - [License](#license)
@@ -63,7 +62,7 @@ cd EmployeeTracker
 ```bash
    node index.js
 ```
-## Screenshots
+### Application Functionality
 Below are sample screenshots showcasing the application functionality.
 
 View All Departments
